@@ -98,11 +98,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ressources\DataBaseAccess.cs" />
     <Compile Include="Modele\Declaration.cs" />
-    <Compile Include="Ressources\Bdd.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ressources\Donnees.cs" />
     <Compile Include="Vues\FormAjouterDeclaration.cs">
       <SubType>Form</SubType>
     </Compile>
