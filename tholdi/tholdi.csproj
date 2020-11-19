@@ -98,6 +98,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modele\Container.cs" />
+    <Compile Include="Modele\Probleme.cs" />
     <Compile Include="Ressources\DataBaseAccess.cs" />
     <Compile Include="Modele\Declaration.cs" />
     <Compile Include="Program.cs" />

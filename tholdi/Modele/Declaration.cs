@@ -16,22 +16,23 @@ namespace tholdi.Modele
 
         public string commentaireDeclaration { get; set; }
         public DateTime DateDeclaration { get; set; }
-        public bool Urgence { get; set; }
-        public bool Traiter { get; set; }
+        public string Urgence { get; set; }
+        public string Traite { get; set; }
         public string Docker { get; set; }
 
         private bool isNew = true;
 
-        private static string _selectSql = "SELECT * FROM declaration";
-        private static string _selectByIdSql = "SELECT * FROM declaration WHERE codeDeclaration = ?codeDeclaration ";
-        private static string _updateSql = "UPDATE declaration SET traiter=?traiter  WHERE codeDeclaration =?codeDeclaration ";
-        private static string _insertSql = "INSERT INTO intervenant (codeProbleme,numContainer,commentaireDeclaration,urgence,traiter,docker) VALUES (?codeProbleme,?numContainer,?commentaireDeclaration,?urgence,?traiter,?docker)";
+        private static string _selectSql = "SELECT * FROM declaration ";
+        private static string _selectByIdSql = "SELECT * FROM declaration  WHERE codeDeclaration  = ?codeDeclaration  ";
+        private static string _updateSql = "UPDATE declaration  SET traiter=?traiter  WHERE codeDeclaration  =?codeDeclaration  ";
+        private static string _insertSql = "INSERT INTO declaration  (numContainer,codeProbleme ,commentaireDeclaration,dateDeclaration,urgence,traite,docker) VALUES (?numContainer,?codeProbleme,?commentaireDeclaration,?dateDeclaration,?urgence,?traite,?docker)";
 
 
         public Declaration()
         {
             DateDeclaration = DateTime.Today;
-            Traiter = false;
+            Traite = "non";
+            Docker = "XBA";
         }
 
 
@@ -50,22 +51,23 @@ namespace tholdi.Modele
                 string idDeclaration = jeuEnregistrements["codeDeclaration"].ToString();
                 uneDeclaration.CodeDeclaration = Convert.ToInt16(idDeclaration);
 
+                string idNumContainer = jeuEnregistrements["numContainer"].ToString();
+                uneDeclaration.NumContainer = Convert.ToInt16(idNumContainer);
+
                 string idProbleme = jeuEnregistrements["codeProbleme"].ToString();
                 uneDeclaration.CodeProbleme = Convert.ToInt16(idProbleme);
 
-                string idNumContainer = jeuEnregistrements["numContainer"].ToString();
-                uneDeclaration.NumContainer = Convert.ToInt16(idNumContainer);
+
 
                 uneDeclaration.commentaireDeclaration = jeuEnregistrements["commentaireDeclaration"].ToString();
 
                 string dateDeclaration = jeuEnregistrements["dateDeclaration"].ToString();
                 uneDeclaration.DateDeclaration = Convert.ToDateTime(dateDeclaration);
 
-                string urgence = jeuEnregistrements["urgence"].ToString();
-                uneDeclaration.Traiter = Convert.ToBoolean(urgence);
+                uneDeclaration.Urgence = jeuEnregistrements["urgence"].ToString();
 
-                string traiter = jeuEnregistrements["traiter"].ToString();
-                uneDeclaration.Traiter = Convert.ToBoolean(traiter);
+
+                uneDeclaration.Traite = jeuEnregistrements["traite"].ToString();
 
                 uneDeclaration.isNew = false;//L'intervenant n'est pas nouveau dans le contexte applicatif puisqu'il provient de la base de données
                 resultat.Add(uneDeclaration);//L'intervenant valorisé à partir des informations de la base de données est ajouté à la collection
@@ -76,12 +78,15 @@ namespace tholdi.Modele
         }
 
 
-        public static Declaration Fetch(int idIntervenant)
+        public static Declaration Fetch(int codeDeclaration)
         {
             Declaration unedeclaration = null;
             MySqlConnection openConnection = DataBaseAccess.getOpenMySqlConnection();
             MySqlCommand commandSql = openConnection.CreateCommand();//Initialisation d'un objet permettant d'interroger la bd commandSql.CommandText = _selectByIdSql;//Définit la requete à utiliser commandSql.Parameters.Add(new MySqlParameter("?id", idIntervenant));//Transmet un paramètre à utiliser lors de l'envoie de la requête. Il s’agit ici de l’identifiant transmis en paramètre.
             commandSql.Prepare();//Prépare la requête (modification du paramètre de la requête)
+
+            commandSql.CommandText = _selectByIdSql;
+            commandSql.Parameters.Add(new MySqlParameter("?codeDeclaration", codeDeclaration));
             MySqlDataReader jeuEnregistrements = commandSql.ExecuteReader();//Exécution de la requête
             bool existEnregistrement = jeuEnregistrements.Read();//Lecture du premier enregistrement
 
@@ -92,22 +97,21 @@ namespace tholdi.Modele
                 string idDeclaration = jeuEnregistrements["codeDeclaration"].ToString();
                 unedeclaration.CodeDeclaration = Convert.ToInt16(idDeclaration);
 
+                string idNumContainer = jeuEnregistrements["numContainer"].ToString();
+                unedeclaration.NumContainer = Convert.ToInt16(idNumContainer);
+
                 string idProbleme = jeuEnregistrements["codeProbleme"].ToString();
                 unedeclaration.CodeProbleme = Convert.ToInt16(idProbleme);
 
-                string idNumContainer = jeuEnregistrements["numContainer"].ToString();
-                unedeclaration.NumContainer = Convert.ToInt16(idNumContainer);
 
                 unedeclaration.commentaireDeclaration = jeuEnregistrements["commentaireDeclaration"].ToString();
 
                 string dateDeclaration = jeuEnregistrements["dateDeclaration"].ToString();
                 unedeclaration.DateDeclaration = Convert.ToDateTime(dateDeclaration);
 
-                string urgence = jeuEnregistrements["urgence"].ToString();
-                unedeclaration.Traiter = Convert.ToBoolean(urgence);
+                unedeclaration.Urgence = jeuEnregistrements["urgence"].ToString();
 
-                string traiter = jeuEnregistrements["traiter"].ToString();
-                unedeclaration.Traiter = Convert.ToBoolean(traiter);
+                unedeclaration.Traite = jeuEnregistrements["traite"].ToString();
 
                 unedeclaration.isNew = false;//L'intervenant n'est pas nouveau dans le contexte applicatif puisqu'il provient de la base de données
 
@@ -139,11 +143,12 @@ namespace tholdi.Modele
             MySqlCommand commandSql = openConnection.CreateCommand();
             commandSql.CommandText = _insertSql;
 
-            commandSql.Parameters.Add(new MySqlParameter("?codeProbleme", CodeDeclaration));
-            commandSql.Parameters.Add(new MySqlParameter("?numContaier", NumContainer));
-            commandSql.Parameters.Add(new MySqlParameter("?commentaireDeclaration", DateDeclaration));
+            commandSql.Parameters.Add(new MySqlParameter("?numContainer", NumContainer));
+            commandSql.Parameters.Add(new MySqlParameter("?codeProbleme", CodeProbleme));
+            commandSql.Parameters.Add(new MySqlParameter("?commentaireDeclaration", commentaireDeclaration));
+            commandSql.Parameters.Add(new MySqlParameter("?dateDeclaration", DateDeclaration));
             commandSql.Parameters.Add(new MySqlParameter("?urgence", Urgence));
-            commandSql.Parameters.Add(new MySqlParameter("?traiter", Traiter));
+            commandSql.Parameters.Add(new MySqlParameter("?traite", Traite));
             commandSql.Parameters.Add(new MySqlParameter("?docker", Docker));
             commandSql.Prepare();
             commandSql.ExecuteNonQuery();
@@ -158,7 +163,7 @@ namespace tholdi.Modele
             MySqlCommand commandSql = openConnection.CreateCommand();
             commandSql.CommandText = _updateSql;
             commandSql.Parameters.Add(new MySqlParameter("?codeDeclaration", CodeDeclaration));
-            commandSql.Parameters.Add(new MySqlParameter("?traiter", Traiter));
+            commandSql.Parameters.Add(new MySqlParameter("?traite", Traite));
 
             commandSql.Prepare();
             commandSql.ExecuteNonQuery();
