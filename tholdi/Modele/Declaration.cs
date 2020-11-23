@@ -27,6 +27,7 @@ namespace tholdi.Modele
         private static string _updateSql = "UPDATE declaration  SET traite=?traite  WHERE codeDeclaration  =?codeDeclaration  ";
         private static string _insertSql = "INSERT INTO declaration  (numContainer,codeProbleme ,commentaireDeclaration,dateDeclaration,urgence,traite,docker) VALUES (?numContainer,?codeProbleme,?commentaireDeclaration,?dateDeclaration,?urgence,?traite,?docker)";
         private static string _lesDeclarationParContainer = "SELECT * from declaration d, container c where c.numContainer = d.numContainer and c.numContainer = ?numContainer";
+        private static string _deleteSql = "delete from declaration where codeDeclaration = ?codeDeclaration";
 
         public Declaration()
         {
@@ -217,6 +218,19 @@ namespace tholdi.Modele
             commandSql.ExecuteNonQuery();
             openConnection.Close();
 
+        }
+
+
+        public void Delete()
+        {
+            MySqlConnection openConnection = DataBaseAccess.getOpenMySqlConnection();
+            MySqlCommand commandSql = openConnection.CreateCommand();
+            commandSql.CommandText = _deleteSql;
+            commandSql.Parameters.Add(new MySqlParameter("?codeDeclaration", CodeDeclaration));
+
+            commandSql.Prepare();
+            commandSql.ExecuteNonQuery();
+            openConnection.Close();
         }
 
         public override string ToString()

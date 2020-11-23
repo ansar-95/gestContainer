@@ -32,12 +32,6 @@ namespace tholdi.Vues
             comboBoxContainer.DisplayMember = "NumContainer";
             comboBoxTraiter.Text = "non";
 
-
-
-
-
-
-
         }
 
         private void comboBoxContainer_SelectedIndexChanged(object sender, EventArgs e)
