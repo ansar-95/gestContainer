@@ -31,12 +31,14 @@ namespace tholdi.Vues
 
             comboBoxProbleme.DataSource = Probleme.FetchAll();
             comboBoxProbleme.DisplayMember = "LibelleProbleme";
+            
         }
 
 
         private void ComboBoxContainer_SelectedIndexChanged(object sender, EventArgs e)
         {
             _containerSelectionee = ComboBoxContainer.SelectedItem as Modele.Container;
+
 
             if (_containerSelectionee != null)
             {
@@ -63,8 +65,8 @@ namespace tholdi.Vues
             else {
 
                 Declaration uneDeclaration = new Declaration();
-                uneDeclaration.NumContainer = _containerSelectionee.NumContainer;
-                uneDeclaration.CodeProbleme = _problemeSelectionee.CodeProbleme;
+                uneDeclaration.NumContainer = _containerSelectionee;
+                uneDeclaration.CodeProbleme = _problemeSelectionee;
                 uneDeclaration.commentaireDeclaration = textBoxCommentaire.Text;
 
                 uneDeclaration.Urgence = comboBoxUrgence.Text;

@@ -116,11 +116,23 @@
     <Compile Include="Vues\FormConnexion.Designer.cs">
       <DependentUpon>FormConnexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\FormConsultationEtModification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\FormConsultationEtModification.designer.cs">
+      <DependentUpon>FormConsultationEtModification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\FormFenetrePrincipale.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\FormFenetrePrincipale.Designer.cs">
       <DependentUpon>FormFenetrePrincipale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\FormSupprimer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\FormSupprimer.Designer.cs">
+      <DependentUpon>FormSupprimer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -137,8 +149,14 @@
     <EmbeddedResource Include="Vues\FormConnexion.resx">
       <DependentUpon>FormConnexion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vues\FormConsultationEtModification.resx">
+      <DependentUpon>FormConsultationEtModification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vues\FormFenetrePrincipale.resx">
       <DependentUpon>FormFenetrePrincipale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\FormSupprimer.resx">
+      <DependentUpon>FormSupprimer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
