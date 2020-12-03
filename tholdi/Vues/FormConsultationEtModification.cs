@@ -40,39 +40,41 @@ namespace tholdi.Vues
 
             if (_containerSelectionee != null)
             {
-                labelTypeContainerResultat.Text = _containerSelectionee.TypeContaier;
 
-                lesDeclarations = Declaration.LesDeclarationParContainers(_containerSelectionee.NumContainer);
-
-                DataTable table = new DataTable();
-
-                for (int i = 0; i < tableau.Length; i++)
-                {
-                    if(tableau[i] == "CodeDeclaration" || tableau[i] == "NumContainer")
-                    {
-                        table.Columns.Add(tableau[i], typeof(int));
-                    }
-                    else
-                    {
-                        table.Columns.Add(tableau[i], typeof(string));
-                    }
-                    
-                }
-
-
-
-                foreach (Declaration declaration in lesDeclarations)
-                {
-                    table.Rows.Add(declaration.CodeDeclaration, declaration.CodeProbleme.LibelleProbleme, declaration.NumContainer.NumContainer, declaration.commentaireDeclaration, declaration.DateDeclaration, declaration.Urgence, declaration.Traite, declaration.Docker); 
-                }
-
-                dataGridViewInformationsDclaration.DataSource = table;
+                dataGridViewInformationsDclaration.DataSource = declarationTable(Declaration.LesDeclarationParContainers(_containerSelectionee.NumContainer)); 
             }
+        }
+
+        private DataTable declarationTable(List<Declaration> lesDeclarations)
+        {
+            DataTable table = new DataTable();
+
+            for (int i = 0; i < tableau.Length; i++)
+            {
+                if (tableau[i] == "CodeDeclaration" || tableau[i] == "NumContainer")
+                {
+                    table.Columns.Add(tableau[i], typeof(int));
+                }
+                else
+                {
+                    table.Columns.Add(tableau[i], typeof(string));
+                }
+
+            }
+
+
+
+            foreach (Declaration declaration in lesDeclarations)
+            {
+                table.Rows.Add(declaration.CodeDeclaration, declaration.CodeProbleme.LibelleProbleme, declaration.NumContainer.NumContainer, declaration.commentaireDeclaration, declaration.DateDeclaration, declaration.Urgence, declaration.Traite, declaration.Docker);
+            }
+
+            return table;
         }
 
 
 
-        
+
 
 
 
@@ -106,8 +108,7 @@ namespace tholdi.Vues
             _declarationSelectionee.Traite = comboBoxTraiter.Text;
             _declarationSelectionee.Save();
 
-            var declaration = dataGridViewInformationsDclaration.SelectedCells;
-            declaration[6].Value = _declarationSelectionee.Urgence;
+            dataGridViewInformationsDclaration.DataSource = declarationTable(Declaration.LesDeclarationParContainers(_containerSelectionee.NumContainer));
         }
     }
 }

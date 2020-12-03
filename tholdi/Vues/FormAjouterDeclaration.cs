@@ -77,5 +77,25 @@ namespace tholdi.Vues
             }
 
         }
+
+        private void FormAjouterDeclaration_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bool r = false;
+            foreach(Form f in Application.OpenForms)
+            {
+                if(f.Name == "FormFenetrePrincipale")
+                {
+                    r = true;
+                }
+            }
+
+            if (!r)
+            {
+                FormFenetrePrincipale f = new FormFenetrePrincipale();
+                f.Show();
+            }
+        }
+
+
     }
 }

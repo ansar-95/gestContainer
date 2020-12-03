@@ -40,6 +40,7 @@
             this.labelTypeContainerResultat = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.labelConsulterModifier = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInformationsDclaration)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +58,7 @@
             this.comboBoxContainer.HoverState.Parent = this.comboBoxContainer;
             this.comboBoxContainer.ItemHeight = 30;
             this.comboBoxContainer.ItemsAppearance.Parent = this.comboBoxContainer;
-            this.comboBoxContainer.Location = new System.Drawing.Point(11, 38);
+            this.comboBoxContainer.Location = new System.Drawing.Point(12, 103);
             this.comboBoxContainer.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxContainer.Name = "comboBoxContainer";
             this.comboBoxContainer.ShadowDecoration.Parent = this.comboBoxContainer;
@@ -93,7 +94,7 @@
             this.dataGridViewInformationsDclaration.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewInformationsDclaration.EnableHeadersVisualStyles = false;
             this.dataGridViewInformationsDclaration.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dataGridViewInformationsDclaration.Location = new System.Drawing.Point(12, 105);
+            this.dataGridViewInformationsDclaration.Location = new System.Drawing.Point(12, 170);
             this.dataGridViewInformationsDclaration.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewInformationsDclaration.Name = "dataGridViewInformationsDclaration";
             this.dataGridViewInformationsDclaration.RowHeadersVisible = false;
@@ -134,7 +135,7 @@
             this.buttonModification.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.buttonModification.ForeColor = System.Drawing.Color.White;
             this.buttonModification.HoverState.Parent = this.buttonModification;
-            this.buttonModification.Location = new System.Drawing.Point(1017, 37);
+            this.buttonModification.Location = new System.Drawing.Point(1017, 87);
             this.buttonModification.Margin = new System.Windows.Forms.Padding(2);
             this.buttonModification.Name = "buttonModification";
             this.buttonModification.ShadowDecoration.Parent = this.buttonModification;
@@ -147,7 +148,7 @@
             // 
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic);
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(11, 12);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(12, 77);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(140, 21);
             this.guna2HtmlLabel1.TabIndex = 4;
@@ -170,7 +171,7 @@
             "oui",
             "non"});
             this.comboBoxTraiter.ItemsAppearance.Parent = this.comboBoxTraiter;
-            this.comboBoxTraiter.Location = new System.Drawing.Point(840, 39);
+            this.comboBoxTraiter.Location = new System.Drawing.Point(840, 88);
             this.comboBoxTraiter.Name = "comboBoxTraiter";
             this.comboBoxTraiter.ShadowDecoration.Parent = this.comboBoxTraiter;
             this.comboBoxTraiter.Size = new System.Drawing.Size(130, 36);
@@ -181,7 +182,7 @@
             // 
             this.labelTypeContainer.BackColor = System.Drawing.Color.Transparent;
             this.labelTypeContainer.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic);
-            this.labelTypeContainer.Location = new System.Drawing.Point(193, 12);
+            this.labelTypeContainer.Location = new System.Drawing.Point(193, 77);
             this.labelTypeContainer.Name = "labelTypeContainer";
             this.labelTypeContainer.Size = new System.Drawing.Size(119, 21);
             this.labelTypeContainer.TabIndex = 6;
@@ -192,7 +193,7 @@
             this.labelTypeContainerResultat.BackColor = System.Drawing.Color.Transparent;
             this.labelTypeContainerResultat.Font = new System.Drawing.Font("Calibri", 17F, System.Drawing.FontStyle.Italic);
             this.labelTypeContainerResultat.ForeColor = System.Drawing.Color.Red;
-            this.labelTypeContainerResultat.Location = new System.Drawing.Point(193, 39);
+            this.labelTypeContainerResultat.Location = new System.Drawing.Point(193, 109);
             this.labelTypeContainerResultat.Name = "labelTypeContainerResultat";
             this.labelTypeContainerResultat.Size = new System.Drawing.Size(170, 30);
             this.labelTypeContainerResultat.TabIndex = 7;
@@ -202,7 +203,7 @@
             // 
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic);
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(12, 79);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(12, 144);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(107, 21);
             this.guna2HtmlLabel2.TabIndex = 8;
@@ -212,17 +213,28 @@
             // 
             this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Italic);
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(840, 12);
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(840, 61);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
             this.guna2HtmlLabel3.Size = new System.Drawing.Size(46, 21);
             this.guna2HtmlLabel3.TabIndex = 9;
             this.guna2HtmlLabel3.Text = "Traiter";
             // 
+            // labelConsulterModifier
+            // 
+            this.labelConsulterModifier.BackColor = System.Drawing.Color.Transparent;
+            this.labelConsulterModifier.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelConsulterModifier.Location = new System.Drawing.Point(367, 12);
+            this.labelConsulterModifier.Name = "labelConsulterModifier";
+            this.labelConsulterModifier.Size = new System.Drawing.Size(437, 69);
+            this.labelConsulterModifier.TabIndex = 10;
+            this.labelConsulterModifier.Text = "Consulter/Modifier";
+            // 
             // FormConsultationEtModification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1163, 547);
+            this.ClientSize = new System.Drawing.Size(1163, 612);
+            this.Controls.Add(this.labelConsulterModifier);
             this.Controls.Add(this.guna2HtmlLabel3);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.labelTypeContainerResultat);
@@ -253,5 +265,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel labelTypeContainerResultat;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel labelConsulterModifier;
     }
 }

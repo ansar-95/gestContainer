@@ -32,6 +32,7 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.buttonSupprimerDeclaration = new Guna.UI2.WinForms.Guna2CircleButton();
             this.buttonConsulterOuModifierDeclaration = new Guna.UI2.WinForms.Guna2CircleButton();
+            this.buttonStatistique = new Guna.UI2.WinForms.Guna2CircleButton();
             this.SuspendLayout();
             // 
             // buttonAjouterDeclaration
@@ -42,7 +43,7 @@
             this.buttonAjouterDeclaration.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAjouterDeclaration.ForeColor = System.Drawing.Color.Black;
             this.buttonAjouterDeclaration.HoverState.Parent = this.buttonAjouterDeclaration;
-            this.buttonAjouterDeclaration.Location = new System.Drawing.Point(93, 159);
+            this.buttonAjouterDeclaration.Location = new System.Drawing.Point(31, 159);
             this.buttonAjouterDeclaration.Name = "buttonAjouterDeclaration";
             this.buttonAjouterDeclaration.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonAjouterDeclaration.ShadowDecoration.Parent = this.buttonAjouterDeclaration;
@@ -69,7 +70,7 @@
             this.buttonSupprimerDeclaration.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSupprimerDeclaration.ForeColor = System.Drawing.Color.Black;
             this.buttonSupprimerDeclaration.HoverState.Parent = this.buttonSupprimerDeclaration;
-            this.buttonSupprimerDeclaration.Location = new System.Drawing.Point(552, 159);
+            this.buttonSupprimerDeclaration.Location = new System.Drawing.Point(439, 159);
             this.buttonSupprimerDeclaration.Name = "buttonSupprimerDeclaration";
             this.buttonSupprimerDeclaration.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonSupprimerDeclaration.ShadowDecoration.Parent = this.buttonSupprimerDeclaration;
@@ -86,7 +87,7 @@
             this.buttonConsulterOuModifierDeclaration.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConsulterOuModifierDeclaration.ForeColor = System.Drawing.Color.Black;
             this.buttonConsulterOuModifierDeclaration.HoverState.Parent = this.buttonConsulterOuModifierDeclaration;
-            this.buttonConsulterOuModifierDeclaration.Location = new System.Drawing.Point(316, 159);
+            this.buttonConsulterOuModifierDeclaration.Location = new System.Drawing.Point(227, 159);
             this.buttonConsulterOuModifierDeclaration.Name = "buttonConsulterOuModifierDeclaration";
             this.buttonConsulterOuModifierDeclaration.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.buttonConsulterOuModifierDeclaration.ShadowDecoration.Parent = this.buttonConsulterOuModifierDeclaration;
@@ -95,6 +96,23 @@
             this.buttonConsulterOuModifierDeclaration.Text = " Consulter / Modifier";
             this.buttonConsulterOuModifierDeclaration.Click += new System.EventHandler(this.buttonConsulterOuModifierDeclaration_Click);
             // 
+            // buttonStatistique
+            // 
+            this.buttonStatistique.CheckedState.Parent = this.buttonStatistique;
+            this.buttonStatistique.CustomImages.Parent = this.buttonStatistique;
+            this.buttonStatistique.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(236)))), ((int)(((byte)(241)))));
+            this.buttonStatistique.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStatistique.ForeColor = System.Drawing.Color.Black;
+            this.buttonStatistique.HoverState.Parent = this.buttonStatistique;
+            this.buttonStatistique.Location = new System.Drawing.Point(628, 159);
+            this.buttonStatistique.Name = "buttonStatistique";
+            this.buttonStatistique.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.buttonStatistique.ShadowDecoration.Parent = this.buttonStatistique;
+            this.buttonStatistique.Size = new System.Drawing.Size(148, 148);
+            this.buttonStatistique.TabIndex = 6;
+            this.buttonStatistique.Text = "Statistique";
+            this.buttonStatistique.Click += new System.EventHandler(this.buttonStatistique_Click);
+            // 
             // FormFenetrePrincipale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -102,6 +120,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 485);
+            this.Controls.Add(this.buttonStatistique);
             this.Controls.Add(this.buttonConsulterOuModifierDeclaration);
             this.Controls.Add(this.buttonSupprimerDeclaration);
             this.Controls.Add(this.guna2HtmlLabel1);
@@ -126,5 +145,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2CircleButton buttonSupprimerDeclaration;
         private Guna.UI2.WinForms.Guna2CircleButton buttonConsulterOuModifierDeclaration;
+        private Guna.UI2.WinForms.Guna2CircleButton buttonStatistique;
     }
 }

@@ -69,6 +69,8 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -128,6 +130,12 @@
     <Compile Include="Vues\FormFenetrePrincipale.Designer.cs">
       <DependentUpon>FormFenetrePrincipale.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\FormStatistique.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\FormStatistique.Designer.cs">
+      <DependentUpon>FormStatistique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\FormSupprimer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\FormFenetrePrincipale.resx">
       <DependentUpon>FormFenetrePrincipale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\FormStatistique.resx">
+      <DependentUpon>FormStatistique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\FormSupprimer.resx">
       <DependentUpon>FormSupprimer.cs</DependentUpon>

@@ -12,6 +12,11 @@ namespace tholdi.Vues
 {
     public partial class FormFenetrePrincipale : Form
     {
+        private Form formSupprimerDeclaration;
+        private Form formAjouter;
+        private Form FormStatistique;
+        private Form FormConsulterOuSupprimer;
+
         public FormFenetrePrincipale()
         {
             InitializeComponent();
@@ -20,26 +25,40 @@ namespace tholdi.Vues
         private void buttonAjouterDeclaration_Click(object sender, EventArgs e)
         {
 
-            Form formAjouter = new FormAjouterDeclaration();
+            formAjouter = new FormAjouterDeclaration();
             formAjouter.Show();
-
+         
         }
 
 
 
         private void buttonSupprimerDeclaration_Click(object sender, EventArgs e)
         {
-            Form formSupprimerDeclaration = new FormSupprimer();
+
+            formSupprimerDeclaration = new FormSupprimer();
             formSupprimerDeclaration.Show();
         }
 
         private void buttonConsulterOuModifierDeclaration_Click(object sender, EventArgs e)
         {
-            Form FormConsulterOuSupprimer = new FormConsultationEtModification();
+
+            FormConsulterOuSupprimer = new FormConsultationEtModification();
             FormConsulterOuSupprimer.Show();
         }
 
         private void FormFenetrePrincipale_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonStatistique_Click(object sender, EventArgs e)
+        {
+            FormStatistique = new FormStatistique();
+            FormStatistique.Show();
+
+        }
+
+        private void FormFenetrePrincipale_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }

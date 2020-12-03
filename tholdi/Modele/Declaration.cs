@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using tholdi.Ressources;
+using tholdi.Vues;
 
 namespace tholdi.Modele
 {
@@ -33,7 +34,6 @@ namespace tholdi.Modele
         {
             DateDeclaration = DateTime.Today;
             Traite = "non";
-            Docker = "XBA";
         }
 
 
@@ -114,6 +114,8 @@ namespace tholdi.Modele
 
                 unedeclaration.Traite = jeuEnregistrements["traite"].ToString();
 
+                unedeclaration.Docker = jeuEnregistrements["docker"].ToString();
+
                 unedeclaration.isNew = false;//L'intervenant n'est pas nouveau dans le contexte applicatif puisqu'il provient de la base de données
 
             }
@@ -158,6 +160,8 @@ namespace tholdi.Modele
 
                 uneDeclaration.Traite = jeuEnregistrements["traite"].ToString();
 
+                uneDeclaration.Docker = jeuEnregistrements["docker"].ToString();
+
                 uneDeclaration.isNew = false;//L'intervenant n'est pas nouveau dans le contexte applicatif puisqu'il provient de la base de données
        
                 resultat.Add(uneDeclaration);//L'intervenant valorisé à partir des informations de la base de données est ajouté à la collection
@@ -168,6 +172,27 @@ namespace tholdi.Modele
 
 
 
+        }
+
+        public static string StatisitiqueResulatat()
+        {
+            
+            MySqlConnection openConnection = DataBaseAccess.getOpenMySqlConnection();
+
+            MySqlCommand cmd = new MySqlCommand("declarationParMois", openConnection);
+
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.Add("@annee", MySqlDbType.Int32).Value = 2020;
+            cmd.Parameters.Add("@mois", MySqlDbType.Int32).Value = 2020;
+
+            cmd.Parameters["@resultat"].Direction = System.Data.ParameterDirection.Output;
+
+            cmd.ExecuteNonQuery();
+
+            string resutat =  cmd.Parameters["@resultat"].Value.ToString();
+
+            return resutat;
         }
 
 
@@ -198,7 +223,7 @@ namespace tholdi.Modele
             commandSql.Parameters.Add(new MySqlParameter("?dateDeclaration", DateDeclaration));
             commandSql.Parameters.Add(new MySqlParameter("?urgence", Urgence));
             commandSql.Parameters.Add(new MySqlParameter("?traite", Traite));
-            commandSql.Parameters.Add(new MySqlParameter("?docker", Docker));
+            commandSql.Parameters.Add(new MySqlParameter("?docker", FormConnexion.Docker));
             commandSql.Prepare();
             commandSql.ExecuteNonQuery();
             CodeDeclaration = Convert.ToInt16(commandSql.LastInsertedId);
@@ -233,10 +258,10 @@ namespace tholdi.Modele
             openConnection.Close();
         }
 
-        public override string ToString()
-        {
-            return  this.CodeDeclaration.ToString()+ ", " + this.NumContainer.NumContainer.ToString() + ", " + this.CodeProbleme.LibelleProbleme + ", " + this.commentaireDeclaration + ", " + this.DateDeclaration.ToString() + ", " + this.Urgence + ", " + this.Traite + ", " + this.Docker;
-        }
+        //public override string ToString()
+        //{
+        //    return  this.CodeDeclaration.ToString()+ ", " + this.NumContainer.NumContainer.ToString() + ", " + this.CodeProbleme.LibelleProbleme + ", " + this.commentaireDeclaration + ", " + this.DateDeclaration.ToString() + ", " + this.Urgence + ", " + this.Traite + ", " + this.Docker;
+        //}
 
 
 

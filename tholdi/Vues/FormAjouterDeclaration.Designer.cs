@@ -238,6 +238,7 @@
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Name = "FormAjouterDeclaration";
             this.Text = "AjouterDeclaration";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAjouterDeclaration_FormClosing);
             this.Load += new System.EventHandler(this.FormAjouterDeclaration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
